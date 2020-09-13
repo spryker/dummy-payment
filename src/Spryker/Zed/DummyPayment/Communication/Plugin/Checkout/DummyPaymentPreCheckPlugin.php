@@ -27,14 +27,10 @@ class DummyPaymentPreCheckPlugin extends AbstractPlugin implements CheckoutPreCh
      * @param \Generated\Shared\Transfer\QuoteTransfer $quoteTransfer
      * @param \Generated\Shared\Transfer\CheckoutResponseTransfer $checkoutResponseTransfer
      *
-     * @return bool
+     * @return void
      */
-    public function execute(
-        QuoteTransfer $quoteTransfer,
-        CheckoutResponseTransfer $checkoutResponseTransfer
-    ) {
+    public function execute(QuoteTransfer $quoteTransfer, CheckoutResponseTransfer $checkoutResponseTransfer): void
+    {
         $checkoutResponseTransfer->setIsSuccess(true);
-
-        return true;
     }
 }
