@@ -34,9 +34,8 @@ class DummyPaymentPreCheckPluginTest extends Unit
         $checkoutResponseTransfer = new CheckoutResponseTransfer();
 
         $plugin = new DummyPaymentPreCheckPlugin();
-        $result = $plugin->execute(new QuoteTransfer(), $checkoutResponseTransfer);
+        $plugin->execute(new QuoteTransfer(), $checkoutResponseTransfer);
 
-        $this->assertTrue($result);
         $this->assertTrue($checkoutResponseTransfer->getIsSuccess());
     }
 }
