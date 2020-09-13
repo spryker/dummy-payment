@@ -51,7 +51,7 @@ class DummyPaymentPostCheckPlugin extends AbstractPlugin implements CheckoutPost
      *
      * @return bool
      */
-    protected function isAuthorizationApproved(QuoteTransfer $quoteTransfer)
+    protected function isAuthorizationApproved(QuoteTransfer $quoteTransfer): bool
     {
         $quoteTransfer->requireBillingAddress();
 

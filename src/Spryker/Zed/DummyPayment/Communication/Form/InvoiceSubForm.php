@@ -36,7 +36,7 @@ class InvoiceSubForm extends AbstractType
      *
      * @return void
      */
-    public function buildForm(FormBuilderInterface $builder, array $options)
+    public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         $this->addDateOfBirth($builder);
     }
@@ -46,7 +46,7 @@ class InvoiceSubForm extends AbstractType
      *
      * @return void
      */
-    public function configureOptions(OptionsResolver $resolver)
+    public function configureOptions(OptionsResolver $resolver): void
     {
         $resolver->setDefaults([
             'data_class' => DummyPaymentTransfer::class,
@@ -108,7 +108,7 @@ class InvoiceSubForm extends AbstractType
     /**
      * @return string
      */
-    protected function getName()
+    protected function getName(): string
     {
         return DummyPaymentConfig::PAYMENT_METHOD_INVOICE;
     }
@@ -116,7 +116,7 @@ class InvoiceSubForm extends AbstractType
     /**
      * @return string
      */
-    protected function getPropertyPath()
+    protected function getPropertyPath(): string
     {
         return DummyPaymentConfig::PAYMENT_METHOD_INVOICE;
     }

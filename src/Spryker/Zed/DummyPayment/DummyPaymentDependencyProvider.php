@@ -23,7 +23,7 @@ class DummyPaymentDependencyProvider extends AbstractBundleDependencyProvider
      *
      * @return \Spryker\Zed\Kernel\Container
      */
-    public function provideBusinessLayerDependencies(Container $container)
+    public function provideBusinessLayerDependencies(Container $container): Container
     {
         $container = $this->addRefundFacade($container);
 
@@ -35,7 +35,7 @@ class DummyPaymentDependencyProvider extends AbstractBundleDependencyProvider
      *
      * @return \Spryker\Zed\Kernel\Container
      */
-    protected function addRefundFacade(Container $container)
+    protected function addRefundFacade(Container $container): Container
     {
         $container->set(static::FACADE_REFUND, function (Container $container) {
             return new DummyPaymentToRefundBridge($container->getLocator()->refund()->facade());
