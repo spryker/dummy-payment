@@ -7,7 +7,9 @@
 
 namespace Spryker\Yves\DummyPayment\Plugin;
 
+use Spryker\Yves\DummyPayment\Form\InvoiceSubForm;
 use Spryker\Yves\Kernel\AbstractPlugin;
+use Spryker\Yves\StepEngine\Dependency\Form\StepEngineFormDataProviderInterface;
 use Spryker\Yves\StepEngine\Dependency\Plugin\Form\SubFormPluginInterface;
 
 /**
@@ -18,7 +20,7 @@ class DummyPaymentInvoiceSubFormPlugin extends AbstractPlugin implements SubForm
     /**
      * @return \Spryker\Yves\DummyPayment\Form\InvoiceSubForm
      */
-    public function createSubForm()
+    public function createSubForm(): InvoiceSubForm
     {
         return $this->getFactory()->createInvoiceForm();
     }
@@ -26,7 +28,7 @@ class DummyPaymentInvoiceSubFormPlugin extends AbstractPlugin implements SubForm
     /**
      * @return \Spryker\Yves\StepEngine\Dependency\Form\StepEngineFormDataProviderInterface
      */
-    public function createSubFormDataProvider()
+    public function createSubFormDataProvider(): StepEngineFormDataProviderInterface
     {
         return $this->getFactory()->createInvoiceFormDataProvider();
     }

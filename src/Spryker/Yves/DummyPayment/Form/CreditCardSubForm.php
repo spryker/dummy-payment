@@ -31,7 +31,7 @@ class CreditCardSubForm extends AbstractSubForm
     /**
      * @return string
      */
-    public function getName()
+    public function getName(): string
     {
         return DummyPaymentConfig::PAYMENT_METHOD_CREDIT_CARD;
     }
@@ -39,7 +39,7 @@ class CreditCardSubForm extends AbstractSubForm
     /**
      * @return string
      */
-    public function getPropertyPath()
+    public function getPropertyPath(): string
     {
         return DummyPaymentConfig::PAYMENT_METHOD_CREDIT_CARD;
     }
@@ -47,7 +47,7 @@ class CreditCardSubForm extends AbstractSubForm
     /**
      * @return string
      */
-    public function getTemplatePath()
+    public function getTemplatePath(): string
     {
         return DummyPaymentConfig::PROVIDER_NAME . '/' . self::PAYMENT_METHOD;
     }
@@ -57,7 +57,7 @@ class CreditCardSubForm extends AbstractSubForm
      *
      * @return void
      */
-    public function configureOptions(OptionsResolver $resolver)
+    public function configureOptions(OptionsResolver $resolver): void
     {
         $resolver->setDefaults([
             'data_class' => DummyPaymentTransfer::class,
@@ -71,7 +71,7 @@ class CreditCardSubForm extends AbstractSubForm
      *
      * @return void
      */
-    public function setDefaultOptions(OptionsResolver $resolver)
+    public function setDefaultOptions(OptionsResolver $resolver): void
     {
         $this->configureOptions($resolver);
     }
@@ -82,7 +82,7 @@ class CreditCardSubForm extends AbstractSubForm
      *
      * @return void
      */
-    public function buildForm(FormBuilderInterface $builder, array $options)
+    public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         $this->addCardType($builder)
              ->addCardNumber($builder)

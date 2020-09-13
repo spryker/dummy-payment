@@ -7,6 +7,7 @@
 
 namespace Spryker\Yves\DummyPayment\Handler;
 
+use Generated\Shared\Transfer\DummyPaymentTransfer;
 use Generated\Shared\Transfer\QuoteTransfer;
 use Spryker\Shared\DummyPayment\DummyPaymentConfig;
 use Spryker\Shared\Kernel\Store;
@@ -29,7 +30,7 @@ class DummyPaymentHandler
      *
      * @return \Generated\Shared\Transfer\QuoteTransfer
      */
-    public function addPaymentToQuote(QuoteTransfer $quoteTransfer)
+    public function addPaymentToQuote(QuoteTransfer $quoteTransfer): QuoteTransfer
     {
         $paymentSelection = $quoteTransfer->getPayment()->getPaymentSelection();
 
@@ -45,7 +46,7 @@ class DummyPaymentHandler
      *
      * @return void
      */
-    protected function setPaymentProviderAndMethod(QuoteTransfer $quoteTransfer, $paymentSelection)
+    protected function setPaymentProviderAndMethod(QuoteTransfer $quoteTransfer, $paymentSelection): void
     {
         $quoteTransfer->getPayment()
             ->setPaymentProvider(self::PAYMENT_PROVIDER)
@@ -58,7 +59,7 @@ class DummyPaymentHandler
      *
      * @return void
      */
-    protected function setDummyPayment(QuoteTransfer $quoteTransfer, $paymentSelection)
+    protected function setDummyPayment(QuoteTransfer $quoteTransfer, $paymentSelection): void
     {
         $dummyPaymentTransfer = $this->getDummyPaymentTransfer($quoteTransfer, $paymentSelection);
 
@@ -68,7 +69,7 @@ class DummyPaymentHandler
     /**
      * @return string
      */
-    protected function getCurrency()
+    protected function getCurrency(): string
     {
         return Store::getInstance()->getCurrencyIsoCode();
     }
@@ -81,7 +82,7 @@ class DummyPaymentHandler
      *
      * @return \Generated\Shared\Transfer\DummyPaymentTransfer
      */
-    protected function getDummyPaymentTransfer(QuoteTransfer $quoteTransfer, $paymentSelection)
+    protected function getDummyPaymentTransfer(QuoteTransfer $quoteTransfer, $paymentSelection): DummyPaymentTransfer
     {
         $paymentMethod = ucfirst($paymentSelection);
         $method = 'get' . $paymentMethod;

@@ -25,7 +25,7 @@ abstract class AbstractSubForm extends AbstractSubFormType implements SubFormInt
     /**
      * @return string
      */
-    public function getProviderName()
+    public function getProviderName(): string
     {
         return DummyPaymentConstants::PROVIDER_NAME;
     }

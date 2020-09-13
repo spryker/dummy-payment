@@ -19,7 +19,7 @@ class DummyPaymentFactory extends AbstractFactory
     /**
      * @return \Spryker\Yves\DummyPayment\Form\CreditCardSubForm
      */
-    public function createCreditCardForm()
+    public function createCreditCardForm(): CreditCardSubForm
     {
         return new CreditCardSubForm();
     }
@@ -27,7 +27,7 @@ class DummyPaymentFactory extends AbstractFactory
     /**
      * @return \Spryker\Yves\DummyPayment\Form\DataProvider\DummyPaymentCreditCardFormDataProvider
      */
-    public function createCreditCardFormDataProvider()
+    public function createCreditCardFormDataProvider(): DummyPaymentCreditCardFormDataProvider
     {
         return new DummyPaymentCreditCardFormDataProvider();
     }
@@ -35,7 +35,7 @@ class DummyPaymentFactory extends AbstractFactory
     /**
      * @return \Spryker\Yves\DummyPayment\Form\InvoiceSubForm
      */
-    public function createInvoiceForm()
+    public function createInvoiceForm(): InvoiceSubForm
     {
         return new InvoiceSubForm();
     }
@@ -43,7 +43,7 @@ class DummyPaymentFactory extends AbstractFactory
     /**
      * @return \Spryker\Yves\DummyPayment\Form\DataProvider\DummyPaymentInvoiceFormDataProvider
      */
-    public function createInvoiceFormDataProvider()
+    public function createInvoiceFormDataProvider(): DummyPaymentInvoiceFormDataProvider
     {
         return new DummyPaymentInvoiceFormDataProvider();
     }
@@ -51,7 +51,7 @@ class DummyPaymentFactory extends AbstractFactory
     /**
      * @return \Spryker\Yves\DummyPayment\Handler\DummyPaymentHandler
      */
-    public function createDummyPaymentHandler()
+    public function createDummyPaymentHandler(): DummyPaymentHandler
     {
         return new DummyPaymentHandler();
     }

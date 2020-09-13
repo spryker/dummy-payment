@@ -7,7 +7,9 @@
 
 namespace Spryker\Yves\DummyPayment\Plugin;
 
+use Spryker\Yves\DummyPayment\Form\CreditCardSubForm;
 use Spryker\Yves\Kernel\AbstractPlugin;
+use Spryker\Yves\StepEngine\Dependency\Form\StepEngineFormDataProviderInterface;
 use Spryker\Yves\StepEngine\Dependency\Plugin\Form\SubFormPluginInterface;
 
 /**
@@ -18,7 +20,7 @@ class DummyPaymentCreditCardSubFormPlugin extends AbstractPlugin implements SubF
     /**
      * @return \Spryker\Yves\DummyPayment\Form\CreditCardSubForm
      */
-    public function createSubForm()
+    public function createSubForm(): CreditCardSubForm
     {
         return $this->getFactory()->createCreditCardForm();
     }
@@ -26,7 +28,7 @@ class DummyPaymentCreditCardSubFormPlugin extends AbstractPlugin implements SubF
     /**
      * @return \Spryker\Yves\StepEngine\Dependency\Form\StepEngineFormDataProviderInterface
      */
-    public function createSubFormDataProvider()
+    public function createSubFormDataProvider(): StepEngineFormDataProviderInterface
     {
         return $this->getFactory()->createCreditCardFormDataProvider();
     }
