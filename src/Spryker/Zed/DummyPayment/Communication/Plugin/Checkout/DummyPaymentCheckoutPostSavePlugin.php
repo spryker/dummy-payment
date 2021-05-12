@@ -10,44 +10,46 @@ namespace Spryker\Zed\DummyPayment\Communication\Plugin\Checkout;
 use Generated\Shared\Transfer\CheckoutErrorTransfer;
 use Generated\Shared\Transfer\CheckoutResponseTransfer;
 use Generated\Shared\Transfer\QuoteTransfer;
+use Spryker\Shared\DummyPayment\DummyPaymentConfig;
 use Spryker\Shared\DummyPayment\DummyPaymentConstants;
+use Spryker\Zed\CheckoutExtension\Dependency\Plugin\CheckoutPostSaveInterface;
 use Spryker\Zed\Kernel\Communication\AbstractPlugin;
-use Spryker\Zed\Payment\Dependency\Plugin\Checkout\CheckoutPostCheckPluginInterface;
 
 /**
- * @deprecated Use {@link \Spryker\Zed\DummyPayment\Communication\Plugin\Checkout\DummyPaymentCheckoutPostSavePlugin} instead.
- *
  * @method \Spryker\Zed\DummyPayment\Business\DummyPaymentFacadeInterface getFacade()
  * @method \Spryker\Zed\DummyPayment\Communication\DummyPaymentCommunicationFactory getFactory()
  * @method \Spryker\Zed\DummyPayment\DummyPaymentConfig getConfig()
  */
-class DummyPaymentPostCheckPlugin extends AbstractPlugin implements CheckoutPostCheckPluginInterface
+class DummyPaymentCheckoutPostSavePlugin extends AbstractPlugin implements CheckoutPostSaveInterface
 {
     public const ERROR_CODE_PAYMENT_FAILED = 'payment failed';
 
     /**
      * {@inheritDoc}
+     * - Works only if QuoteTransfer.payment.paymentProvider is 'DummyPayment' otherwise does nothing.
+     * - If QuoteTransfer.billingAddress.lastName is 'Invalid' the plugin adds the error into CheckoutResponseTransfer.
      *
      * @api
      *
      * @param \Generated\Shared\Transfer\QuoteTransfer $quoteTransfer
      * @param \Generated\Shared\Transfer\CheckoutResponseTransfer $checkoutResponseTransfer
      *
-     * @return \Generated\Shared\Transfer\CheckoutResponseTransfer
+     * @return void
      */
-    public function execute(QuoteTransfer $quoteTransfer, CheckoutResponseTransfer $checkoutResponseTransfer)
+    public function executeHook(QuoteTransfer $quoteTransfer, CheckoutResponseTransfer $checkoutResponseTransfer)
     {
+        if ($quoteTransfer->getPayment()->getPaymentProvider() !== DummyPaymentConfig::PROVIDER_NAME) {
+            return;
+        }
+
         if (!$this->isAuthorizationApproved($quoteTransfer)) {
-            $checkoutErrorTransfer = new CheckoutErrorTransfer();
-            $checkoutErrorTransfer
+            $checkoutErrorTransfer = (new CheckoutErrorTransfer())
                 ->setErrorCode(self::ERROR_CODE_PAYMENT_FAILED)
                 ->setMessage('Something went wrong with your payment. Try again!');
 
-            $checkoutResponseTransfer->addError($checkoutErrorTransfer);
-            $checkoutResponseTransfer->setIsSuccess(false);
+            $checkoutResponseTransfer->addError($checkoutErrorTransfer)
+                ->setIsSuccess(false);
         }
-
-        return $checkoutResponseTransfer;
     }
 
     /**
@@ -55,12 +57,10 @@ class DummyPaymentPostCheckPlugin extends AbstractPlugin implements CheckoutPost
      *
      * @return bool
      */
-    protected function isAuthorizationApproved(QuoteTransfer $quoteTransfer)
+    protected function isAuthorizationApproved(QuoteTransfer $quoteTransfer): bool
     {
-        $quoteTransfer->requireBillingAddress();
-
-        $billingAddress = $quoteTransfer->getBillingAddress();
-        $billingAddress->requireLastName();
+        /** @var \Generated\Shared\Transfer\AddressTransfer $billingAddress */
+        $billingAddress = $quoteTransfer->requireBillingAddress()->getBillingAddress();
 
         return ($billingAddress->getLastName() !== DummyPaymentConstants::LAST_NAME_FOR_INVALID_TEST);
     }
