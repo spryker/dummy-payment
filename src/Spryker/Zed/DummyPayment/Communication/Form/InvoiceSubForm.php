@@ -56,11 +56,6 @@ class InvoiceSubForm extends AbstractType
         $this->addDateOfBirth($builder);
     }
 
-    /**
-     * @param \Symfony\Component\OptionsResolver\OptionsResolver $resolver
-     *
-     * @return void
-     */
     public function configureOptions(OptionsResolver $resolver): void
     {
         $resolver->setDefaults([
@@ -97,17 +92,11 @@ class InvoiceSubForm extends AbstractType
         return $this;
     }
 
-    /**
-     * @return \Symfony\Component\Validator\Constraint
-     */
     protected function createNotBlankConstraint(): Constraint
     {
         return new NotBlank(['groups' => $this->getPropertyPath()]);
     }
 
-    /**
-     * @return \Symfony\Component\Validator\Constraint
-     */
     protected function createBirthdayConstraint(): Constraint
     {
         return new Callback([
@@ -120,17 +109,11 @@ class InvoiceSubForm extends AbstractType
         ]);
     }
 
-    /**
-     * @return string
-     */
     protected function getName(): string
     {
         return DummyPaymentConfig::PAYMENT_METHOD_INVOICE;
     }
 
-    /**
-     * @return string
-     */
     protected function getPropertyPath(): string
     {
         return DummyPaymentConfig::PAYMENT_METHOD_INVOICE;

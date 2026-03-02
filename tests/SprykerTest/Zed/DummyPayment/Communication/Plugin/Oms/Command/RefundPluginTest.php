@@ -28,9 +28,6 @@ use Spryker\Zed\Oms\Business\Util\ReadOnlyArrayObject;
  */
 class RefundPluginTest extends Unit
 {
-    /**
-     * @return void
-     */
     public function testRunShouldDelegateToFacade(): void
     {
         $dummyPaymentFacadeMock = $this->getDummyPaymentFacadeMock();

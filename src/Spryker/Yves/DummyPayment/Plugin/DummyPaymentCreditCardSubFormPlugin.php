@@ -17,17 +17,11 @@ use Spryker\Yves\StepEngine\Dependency\Plugin\Form\SubFormPluginInterface;
  */
 class DummyPaymentCreditCardSubFormPlugin extends AbstractPlugin implements SubFormPluginInterface
 {
-    /**
-     * @return \Spryker\Yves\StepEngine\Dependency\Form\SubFormInterface
-     */
     public function createSubForm(): SubFormInterface
     {
         return $this->getFactory()->createCreditCardForm();
     }
 
-    /**
-     * @return \Spryker\Yves\StepEngine\Dependency\Form\StepEngineFormDataProviderInterface
-     */
     public function createSubFormDataProvider(): StepEngineFormDataProviderInterface
     {
         return $this->getFactory()->createCreditCardFormDataProvider();

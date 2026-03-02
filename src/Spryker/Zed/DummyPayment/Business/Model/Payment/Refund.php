@@ -18,9 +18,6 @@ class Refund implements RefundInterface
      */
     protected $refundFacade;
 
-    /**
-     * @param \Spryker\Zed\DummyPayment\Dependency\Facade\DummyPaymentToRefundFacadeInterface $refundFacade
-     */
     public function __construct(DummyPaymentToRefundFacadeInterface $refundFacade)
     {
         $this->refundFacade = $refundFacade;

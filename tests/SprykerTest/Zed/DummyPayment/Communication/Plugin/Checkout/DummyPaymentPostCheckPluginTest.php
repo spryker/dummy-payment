@@ -28,9 +28,6 @@ use Spryker\Zed\DummyPayment\Communication\Plugin\Checkout\DummyPaymentPostCheck
  */
 class DummyPaymentPostCheckPluginTest extends Unit
 {
-    /**
-     * @return void
-     */
     public function testExecuteShouldReturnCheckoutResponseTransferWithoutAnyErrorIfPaymentAuthorizationApproved(): void
     {
         $checkoutResponseTransfer = new CheckoutResponseTransfer();
@@ -48,9 +45,6 @@ class DummyPaymentPostCheckPluginTest extends Unit
         $this->assertTrue($checkoutResponseTransfer->getIsSuccess());
     }
 
-    /**
-     * @return void
-     */
     public function testExecuteShouldReturnCheckoutResponseTransferWithErrorIfPaymentAuthorizationNotApproved(): void
     {
         $checkoutResponseTransfer = new CheckoutResponseTransfer();

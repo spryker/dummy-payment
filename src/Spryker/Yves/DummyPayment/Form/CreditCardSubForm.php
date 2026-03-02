@@ -61,35 +61,21 @@ class CreditCardSubForm extends AbstractSubForm
      */
     public const OPTION_CARD_EXPIRES_CHOICES_YEAR = 'year choices';
 
-    /**
-     * @return string
-     */
     public function getName(): string
     {
         return DummyPaymentConfig::PAYMENT_METHOD_CREDIT_CARD;
     }
 
-    /**
-     * @return string
-     */
     public function getPropertyPath(): string
     {
         return DummyPaymentConfig::PAYMENT_METHOD_CREDIT_CARD;
     }
 
-    /**
-     * @return string
-     */
     public function getTemplatePath(): string
     {
         return DummyPaymentConfig::PROVIDER_NAME . '/' . static::PAYMENT_METHOD;
     }
 
-    /**
-     * @param \Symfony\Component\OptionsResolver\OptionsResolver $resolver
-     *
-     * @return void
-     */
     public function configureOptions(OptionsResolver $resolver): void
     {
         $resolver->setDefaults([

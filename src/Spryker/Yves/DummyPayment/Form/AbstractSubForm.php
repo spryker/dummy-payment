@@ -30,9 +30,6 @@ abstract class AbstractSubForm extends AbstractSubFormType implements SubFormInt
      */
     public const MIN_BIRTHDAY_DATE_STRING = '-18 years';
 
-    /**
-     * @return string
-     */
     public function getProviderName(): string
     {
         return DummyPaymentConstants::PROVIDER_NAME;
@@ -68,17 +65,11 @@ abstract class AbstractSubForm extends AbstractSubFormType implements SubFormInt
         return $this;
     }
 
-    /**
-     * @return \Symfony\Component\Validator\Constraint
-     */
     protected function createNotBlankConstraint(): Constraint
     {
         return new NotBlank(['groups' => $this->getPropertyPath()]);
     }
 
-    /**
-     * @return \Symfony\Component\Validator\Constraint
-     */
     protected function createBirthdayConstraint(): Constraint
     {
         return new Callback([

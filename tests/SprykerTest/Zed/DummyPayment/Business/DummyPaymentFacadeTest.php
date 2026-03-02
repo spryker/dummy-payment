@@ -26,9 +26,6 @@ use Spryker\Zed\DummyPayment\Business\Model\Payment\RefundInterface;
  */
 class DummyPaymentFacadeTest extends Unit
 {
-    /**
-     * @return void
-     */
     public function testRefundShouldDelegateToRefundModel(): void
     {
         $dummyPaymentFactoryMock = $this->getFactoryMock();

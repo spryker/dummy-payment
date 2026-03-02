@@ -19,11 +19,6 @@ use Spryker\Zed\Oms\OmsDependencyProvider;
 
 class OmsDependencyInjector extends AbstractDependencyInjector
 {
-    /**
-     * @param \Spryker\Zed\Kernel\Container $container
-     *
-     * @return \Spryker\Zed\Kernel\Container
-     */
     public function injectBusinessLayerDependencies(Container $container): Container
     {
         $container = $this->injectCommands($container);
@@ -32,11 +27,6 @@ class OmsDependencyInjector extends AbstractDependencyInjector
         return $container;
     }
 
-    /**
-     * @param \Spryker\Zed\Kernel\Container $container
-     *
-     * @return \Spryker\Zed\Kernel\Container
-     */
     protected function injectCommands(Container $container): Container
     {
         $container->extend(OmsDependencyProvider::COMMAND_PLUGINS, function (CommandCollectionInterface $commandCollection) {
@@ -49,11 +39,6 @@ class OmsDependencyInjector extends AbstractDependencyInjector
         return $container;
     }
 
-    /**
-     * @param \Spryker\Zed\Kernel\Container $container
-     *
-     * @return \Spryker\Zed\Kernel\Container
-     */
     protected function injectConditions(Container $container): Container
     {
         $container->extend(OmsDependencyProvider::CONDITION_PLUGINS, function (ConditionCollectionInterface $conditionCollection) {

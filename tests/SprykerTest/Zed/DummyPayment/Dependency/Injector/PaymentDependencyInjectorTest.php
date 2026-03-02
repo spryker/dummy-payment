@@ -27,9 +27,6 @@ use Spryker\Zed\Payment\PaymentDependencyProvider;
  */
 class PaymentDependencyInjectorTest extends Unit
 {
-    /**
-     * @return void
-     */
     public function testInjectBusinessLayerDependenciesShouldAddPlugins(): void
     {
         $container = new Container();
@@ -46,11 +43,6 @@ class PaymentDependencyInjectorTest extends Unit
         $this->assertTrue($pluginCollection->has(DummyPaymentConstants::PROVIDER_NAME, PaymentDependencyProvider::CHECKOUT_POST_SAVE_PLUGINS));
     }
 
-    /**
-     * @param \Spryker\Zed\Kernel\Container $container
-     *
-     * @return \Spryker\Zed\Payment\Dependency\Plugin\Checkout\CheckoutPluginCollection
-     */
     protected function getPluginCollectionFromContainer(Container $container): CheckoutPluginCollection
     {
         $pluginCollection = $container[PaymentDependencyProvider::CHECKOUT_PLUGINS];

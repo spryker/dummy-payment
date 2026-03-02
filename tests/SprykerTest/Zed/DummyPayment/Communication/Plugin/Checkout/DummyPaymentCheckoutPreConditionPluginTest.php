@@ -27,9 +27,6 @@ use Spryker\Zed\DummyPayment\Communication\Plugin\Checkout\DummyPaymentCheckoutP
  */
 class DummyPaymentCheckoutPreConditionPluginTest extends Unit
 {
-    /**
-     * @return void
-     */
     public function testCheckConditionResultShouldBeSuccess(): void
     {
         // Arrange

@@ -19,11 +19,6 @@ use Spryker\Yves\StepEngine\Dependency\Plugin\Handler\StepHandlerPluginCollectio
 
 class CheckoutDependencyInjector implements DependencyInjectorInterface
 {
-    /**
-     * @param \Spryker\Yves\Kernel\Container $container
-     *
-     * @return \Spryker\Yves\Kernel\Container
-     */
     public function inject(Container $container): Container
     {
         $container = $this->injectPaymentSubForms($container);
@@ -32,11 +27,6 @@ class CheckoutDependencyInjector implements DependencyInjectorInterface
         return $container;
     }
 
-    /**
-     * @param \Spryker\Yves\Kernel\Container $container
-     *
-     * @return \Spryker\Yves\Kernel\Container
-     */
     protected function injectPaymentSubForms(Container $container): Container
     {
         $container->extend(CheckoutDependencyProvider::PAYMENT_SUB_FORMS, function (SubFormPluginCollection $paymentSubForms) {
@@ -49,11 +39,6 @@ class CheckoutDependencyInjector implements DependencyInjectorInterface
         return $container;
     }
 
-    /**
-     * @param \Spryker\Yves\Kernel\Container $container
-     *
-     * @return \Spryker\Yves\Kernel\Container
-     */
     protected function injectPaymentMethodHandler(Container $container): Container
     {
         $container->extend(CheckoutDependencyProvider::PAYMENT_METHOD_HANDLER, function (StepHandlerPluginCollection $paymentMethodHandler) {

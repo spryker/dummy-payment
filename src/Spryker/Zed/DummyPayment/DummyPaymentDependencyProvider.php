@@ -21,11 +21,6 @@ class DummyPaymentDependencyProvider extends AbstractBundleDependencyProvider
      */
     public const FACADE_REFUND = 'refund facade';
 
-    /**
-     * @param \Spryker\Zed\Kernel\Container $container
-     *
-     * @return \Spryker\Zed\Kernel\Container
-     */
     public function provideBusinessLayerDependencies(Container $container): Container
     {
         $container = parent::provideBusinessLayerDependencies($container);
@@ -35,11 +30,6 @@ class DummyPaymentDependencyProvider extends AbstractBundleDependencyProvider
         return $container;
     }
 
-    /**
-     * @param \Spryker\Zed\Kernel\Container $container
-     *
-     * @return \Spryker\Zed\Kernel\Container
-     */
     protected function addRefundFacade(Container $container): Container
     {
         $container->set(static::FACADE_REFUND, function (Container $container) {

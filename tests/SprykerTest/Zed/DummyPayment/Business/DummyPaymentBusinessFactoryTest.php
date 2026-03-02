@@ -23,9 +23,6 @@ use Spryker\Zed\DummyPayment\Business\Model\Payment\RefundInterface;
  */
 class DummyPaymentBusinessFactoryTest extends Unit
 {
-    /**
-     * @return void
-     */
     public function testCreateRefundShouldReturnRefundInterface(): void
     {
         $dummyPaymentBusinessFactory = new DummyPaymentBusinessFactory();

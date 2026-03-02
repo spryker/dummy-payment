@@ -21,11 +21,6 @@ use Spryker\Zed\Payment\PaymentDependencyProvider;
  */
 class PaymentDependencyInjector extends AbstractDependencyInjector
 {
-    /**
-     * @param \Spryker\Zed\Kernel\Container $container
-     *
-     * @return \Spryker\Zed\Kernel\Container
-     */
     public function injectBusinessLayerDependencies(Container $container): Container
     {
         $container = $this->injectPaymentPlugins($container);
@@ -33,11 +28,6 @@ class PaymentDependencyInjector extends AbstractDependencyInjector
         return $container;
     }
 
-    /**
-     * @param \Spryker\Zed\Kernel\Container $container
-     *
-     * @return \Spryker\Zed\Kernel\Container
-     */
     protected function injectPaymentPlugins(Container $container): Container
     {
         $container->extend(PaymentDependencyProvider::CHECKOUT_PLUGINS, function (CheckoutPluginCollection $pluginCollection) {

@@ -27,9 +27,6 @@ use Spryker\Zed\DummyPayment\Dependency\Facade\DummyPaymentToRefundFacadeInterfa
  */
 class RefundTest extends Unit
 {
-    /**
-     * @return void
-     */
     public function testSaveRefundShouldCalledWhenRefundProcessSuccessful(): void
     {
         $refundTransfer = new RefundTransfer();
@@ -39,9 +36,6 @@ class RefundTest extends Unit
         $refund->refund([], new SpySalesOrder());
     }
 
-    /**
-     * @return void
-     */
     public function testSaveRefundShouldNotCalledWhenRefundProcessNotSuccessful(): void
     {
         $refundTransfer = new RefundTransfer();

@@ -27,11 +27,6 @@ class DummyPaymentHandler
         DummyPaymentConfig::PAYMENT_METHOD_CREDIT_CARD => 'credit card',
     ];
 
-    /**
-     * @param \Generated\Shared\Transfer\QuoteTransfer $quoteTransfer
-     *
-     * @return \Generated\Shared\Transfer\QuoteTransfer
-     */
     public function addPaymentToQuote(QuoteTransfer $quoteTransfer): QuoteTransfer
     {
         $paymentSelection = $quoteTransfer->getPayment()->getPaymentSelection();
@@ -42,12 +37,6 @@ class DummyPaymentHandler
         return $quoteTransfer;
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\QuoteTransfer $quoteTransfer
-     * @param string $paymentSelection
-     *
-     * @return void
-     */
     protected function setPaymentProviderAndMethod(QuoteTransfer $quoteTransfer, string $paymentSelection): void
     {
         $quoteTransfer->getPayment()
@@ -55,12 +44,6 @@ class DummyPaymentHandler
             ->setPaymentMethod(static::$paymentMethods[$paymentSelection]);
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\QuoteTransfer $quoteTransfer
-     * @param string $paymentSelection
-     *
-     * @return void
-     */
     protected function setDummyPayment(QuoteTransfer $quoteTransfer, string $paymentSelection): void
     {
         $dummyPaymentTransfer = $this->getDummyPaymentTransfer($quoteTransfer, $paymentSelection);

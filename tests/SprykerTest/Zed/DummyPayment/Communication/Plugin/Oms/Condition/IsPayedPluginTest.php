@@ -26,9 +26,6 @@ use Spryker\Zed\DummyPayment\Communication\Plugin\Oms\Condition\IsPayedPlugin;
  */
 class IsPayedPluginTest extends Unit
 {
-    /**
-     * @return void
-     */
     public function testCheckReturnAlwaysTrue(): void
     {
         $isPayedPlugin = new IsPayedPlugin();

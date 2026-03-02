@@ -30,9 +30,6 @@ class DummyPaymentCommunicationTester extends Actor
 {
     use _generated\DummyPaymentCommunicationTesterActions;
 
-    /**
-     * @return \Generated\Shared\Transfer\QuoteTransfer
-     */
     public function createQuoteTransfer(): QuoteTransfer
     {
         $paymentTransfer = new PaymentTransfer();

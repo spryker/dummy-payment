@@ -18,9 +18,6 @@ use Spryker\Zed\Kernel\Business\AbstractBusinessFactory;
  */
 class DummyPaymentBusinessFactory extends AbstractBusinessFactory
 {
-    /**
-     * @return \Spryker\Zed\DummyPayment\Business\Model\Payment\RefundInterface
-     */
     public function createRefund(): RefundInterface
     {
         return new Refund(
@@ -28,9 +25,6 @@ class DummyPaymentBusinessFactory extends AbstractBusinessFactory
         );
     }
 
-    /**
-     * @return \Spryker\Zed\DummyPayment\Dependency\Facade\DummyPaymentToRefundFacadeInterface
-     */
     public function getRefundFacade(): DummyPaymentToRefundFacadeInterface
     {
         return $this->getProvidedDependency(DummyPaymentDependencyProvider::FACADE_REFUND);

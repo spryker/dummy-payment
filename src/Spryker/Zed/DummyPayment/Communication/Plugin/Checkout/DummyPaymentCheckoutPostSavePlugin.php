@@ -55,11 +55,6 @@ class DummyPaymentCheckoutPostSavePlugin extends AbstractPlugin implements Check
         }
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\QuoteTransfer $quoteTransfer
-     *
-     * @return bool
-     */
     protected function isAuthorizationApproved(QuoteTransfer $quoteTransfer): bool
     {
         /** @var \Generated\Shared\Transfer\AddressTransfer $billingAddress */

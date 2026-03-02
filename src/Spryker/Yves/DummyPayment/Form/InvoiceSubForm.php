@@ -28,35 +28,21 @@ class InvoiceSubForm extends AbstractSubForm
      */
     protected const PAYMENT_SELECTION = 'paymentSelection';
 
-    /**
-     * @return string
-     */
     public function getName(): string
     {
         return DummyPaymentConfig::PAYMENT_METHOD_INVOICE;
     }
 
-    /**
-     * @return string
-     */
     public function getPropertyPath(): string
     {
         return DummyPaymentConfig::PAYMENT_METHOD_INVOICE;
     }
 
-    /**
-     * @return string
-     */
     public function getTemplatePath(): string
     {
         return DummyPaymentConfig::PROVIDER_NAME . '/' . static::PAYMENT_METHOD;
     }
 
-    /**
-     * @param \Symfony\Component\OptionsResolver\OptionsResolver $resolver
-     *
-     * @return void
-     */
     public function configureOptions(OptionsResolver $resolver): void
     {
         $resolver->setDefaults([

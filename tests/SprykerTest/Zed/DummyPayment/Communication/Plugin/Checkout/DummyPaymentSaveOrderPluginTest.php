@@ -26,9 +26,6 @@ use Spryker\Zed\DummyPayment\Communication\Plugin\Checkout\DummyPaymentSaveOrder
  */
 class DummyPaymentSaveOrderPluginTest extends Unit
 {
-    /**
-     * @return void
-     */
     public function testExecuteShouldReturnCheckoutResponseTransfer(): void
     {
         $checkoutResponseTransfer = new CheckoutResponseTransfer();

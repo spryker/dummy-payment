@@ -36,11 +36,6 @@ class DummyPaymentToRefundFacadeBridge implements DummyPaymentToRefundFacadeInte
         return $this->refundFacade->calculateRefund($salesOrderItems, $salesOrderEntity);
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\RefundTransfer $refundTransfer
-     *
-     * @return bool
-     */
     public function saveRefund(RefundTransfer $refundTransfer): bool
     {
         return $this->refundFacade->saveRefund($refundTransfer);

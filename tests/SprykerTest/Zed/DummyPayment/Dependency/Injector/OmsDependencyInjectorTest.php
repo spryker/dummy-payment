@@ -27,9 +27,6 @@ use Spryker\Zed\Oms\OmsDependencyProvider;
  */
 class OmsDependencyInjectorTest extends Unit
 {
-    /**
-     * @return void
-     */
     public function testInjectBusinessLayerDependenciesShouldAddCommands(): void
     {
         $container = new Container();
@@ -43,11 +40,6 @@ class OmsDependencyInjectorTest extends Unit
         $commandCollection->has('DummyPayment/Refund');
     }
 
-    /**
-     * @param \Spryker\Zed\Kernel\Container $container
-     *
-     * @return \Spryker\Zed\Oms\Communication\Plugin\Oms\Command\CommandCollection
-     */
     protected function getCommandCollectionFromContainer(Container $container): CommandCollection
     {
         $commandCollection = $container[OmsDependencyProvider::COMMAND_PLUGINS];
@@ -55,9 +47,6 @@ class OmsDependencyInjectorTest extends Unit
         return $commandCollection;
     }
 
-    /**
-     * @return void
-     */
     public function testInjectBusinessLayerDependenciesShouldAddConditions(): void
     {
         $container = new Container();
@@ -72,11 +61,6 @@ class OmsDependencyInjectorTest extends Unit
         $conditionCollection->has('DummyPayment/IsPayed');
     }
 
-    /**
-     * @param \Spryker\Zed\Kernel\Container $container
-     *
-     * @return \Spryker\Zed\Oms\Communication\Plugin\Oms\Condition\ConditionCollection
-     */
     protected function getConditionCollectionFromContainer(Container $container): ConditionCollection
     {
         $conditionCollection = $container[OmsDependencyProvider::CONDITION_PLUGINS];

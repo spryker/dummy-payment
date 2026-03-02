@@ -28,9 +28,6 @@ use Spryker\Zed\DummyPayment\Communication\Plugin\Oms\Condition\IsAuthorizedPlug
  */
 class IsAuthorizedPluginTest extends Unit
 {
-    /**
-     * @return void
-     */
     public function testCheckReturnTrueWhenLastNameValid(): void
     {
         $isAuthorizedPlugin = new IsAuthorizedPlugin();
@@ -42,9 +39,6 @@ class IsAuthorizedPluginTest extends Unit
         $this->assertTrue($isAuthorizedPlugin->check($salesOrderItemEntity));
     }
 
-    /**
-     * @return void
-     */
     public function testCheckReturnFalseWhenLastNameInvalid(): void
     {
         $isAuthorizedPlugin = new IsAuthorizedPlugin();
