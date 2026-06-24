@@ -21,6 +21,8 @@ use Spryker\Zed\ManualOrderEntryGuiExtension\Dependency\Plugin\PaymentSubFormPlu
 class DummyPaymentInvoicePaymentSubFormPlugin extends AbstractPlugin implements PaymentSubFormPluginInterface
 {
     /**
+     * @api
+     *
      * @var string
      */
     public const PAYMENT_PROVIDER = 'DummyPayment';

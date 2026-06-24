@@ -24,6 +24,8 @@ use Spryker\Zed\Payment\Dependency\Plugin\Checkout\CheckoutPostCheckPluginInterf
 class DummyPaymentPostCheckPlugin extends AbstractPlugin implements CheckoutPostCheckPluginInterface
 {
     /**
+     * @api
+     *
      * @var string
      */
     public const ERROR_CODE_PAYMENT_FAILED = 'payment failed';
