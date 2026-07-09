@@ -14,6 +14,9 @@ use Symfony\Component\Form\FormEvent;
 use Symfony\Component\Form\FormEvents;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
+/**
+ * @method \Spryker\Yves\DummyPayment\DummyPaymentConfig getConfig()
+ */
 class InvoiceSubForm extends AbstractSubForm
 {
     /**
@@ -70,8 +73,11 @@ class InvoiceSubForm extends AbstractSubForm
      */
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
-        $this->addDateOfBirth($builder)
-            ->resetDataForUnselectedForm($builder);
+        if ($this->getConfig()->isDateOfBirthEnabled()) {
+            $this->addDateOfBirth($builder);
+        }
+
+        $this->resetDataForUnselectedForm($builder);
     }
 
     /**
