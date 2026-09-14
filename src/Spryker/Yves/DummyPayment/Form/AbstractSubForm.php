@@ -72,13 +72,13 @@ abstract class AbstractSubForm extends AbstractSubFormType implements SubFormInt
 
     protected function createBirthdayConstraint(): Constraint
     {
-        return new Callback([
-            'callback' => function ($date, ExecutionContextInterface $context) {
+        return new Callback(
+            callback: function ($date, ExecutionContextInterface $context) {
                 if (strtotime($date) > strtotime(self::MIN_BIRTHDAY_DATE_STRING)) {
                     $context->addViolation('checkout.step.payment.must_be_older_than_18_years');
                 }
             },
-            'groups' => $this->getPropertyPath(),
-        ]);
+            groups: [$this->getPropertyPath()],
+        );
     }
 }

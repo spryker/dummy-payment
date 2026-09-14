@@ -99,14 +99,14 @@ class InvoiceSubForm extends AbstractType
 
     protected function createBirthdayConstraint(): Constraint
     {
-        return new Callback([
-            'callback' => function ($date, ExecutionContextInterface $context) {
+        return new Callback(
+            callback: function ($date, ExecutionContextInterface $context) {
                 if (strtotime($date) > strtotime(static::MIN_BIRTHDAY_DATE_STRING)) {
                     $context->addViolation('Must be older than 18 years');
                 }
             },
-            'groups' => $this->getPropertyPath(),
-        ]);
+            groups: [$this->getPropertyPath()],
+        );
     }
 
     protected function getName(): string
